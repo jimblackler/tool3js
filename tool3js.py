@@ -50,9 +50,9 @@ def main():
           print 'Creating %s' % asset_filename
           with open(os.path.join(base, asset_filename), 'wb') as f:
             f.write(data)
-          image['url'] = asset_filename
-        else:
-          image['url'] = hashes[digest]
+          hashes[digest] = asset_filename
+
+        image['url'] = hashes[digest]
         replaced += 1
 
   print 'Replaced %d images' % replaced
