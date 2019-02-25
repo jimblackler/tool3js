@@ -15,7 +15,10 @@ def main():
 
   args = parser.parse_args()
 
-  base = os.path.dirname(args.output or args.input)
+  if args.urls == 'file':
+    base = os.path.dirname(args.output)
+  elif args.urls == 'data':
+    base = os.path.dirname(args.input)
 
   with open(args.input) as f:
     scene = json.load(f)
